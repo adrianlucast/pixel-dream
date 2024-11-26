@@ -16,7 +16,7 @@ import {
 import { Line, Bar, Pie } from "react-chartjs-2";
 import Pagina from "@/app/components/template/Pagina";
 
-// Registrar componentes do Chart.js
+//componentes do Chart.js
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -30,24 +30,23 @@ ChartJS.register(
 );
 
 export default function DashboardLayout() {
-  const [openModal, setOpenModal] = useState(false); // Controle do modal para selecionar data ou post
+  const [openModal, setOpenModal] = useState(false); 
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedPost, setSelectedPost] = useState("");
 
-  // Dados combinados: Vendas Masculinas e Femininas por Idade
   const combinedSalesData = {
-    labels: ["18-24", "25-34", "35-44", "45-54", "55+"], // Faixas etárias
+    labels: ["18-24", "25-34", "35-44", "45-54", "55+"], 
     datasets: [
       {
         label: "Masculino",
-        data: [30, 67, 59, 22, 38], // Vendas Masculinas
+        data: [30, 67, 59, 22, 38], 
         borderColor: "#36A2EB",
         backgroundColor: "rgba(54, 162, 235, 0.2)",
         tension: 0.4,
       },
       {
         label: "Feminino",
-        data: [22, 40, 30, 13, 76], // Vendas Femininas
+        data: [22, 40, 30, 13, 76], 
         borderColor: "#FF6384",
         backgroundColor: "rgba(255, 99, 132, 0.2)",
         tension: 0.4,
@@ -55,32 +54,32 @@ export default function DashboardLayout() {
     ],
   };
 
-  // Dados de vendas feitas vs não feitas
+  //vendas feitas vs não feitas
   const salesVsNonSalesData = {
     labels: ["Vendas Feitas", "Vendas Não Feitas"],
     datasets: [
       {
         label: "Vendas",
-        data: [300, 200], // 300 vendas feitas, 200 não feitas
+        data: [300, 200], 
         backgroundColor: ["#36A2EB", "#FF6384"],
       },
     ],
   };
 
-  // Dados de vendas por plataforma
+  // vendas por plataforma
   const platformSalesData = {
-    labels: ["Instagram", "Facebook", "Twitter"], // Plataformas
+    labels: ["Instagram", "Facebook", "Twitter"],
     datasets: [
       {
         label: "Vendas por Plataforma",
-        data: [150, 200, 120], // Vendas feitas em cada plataforma
+        data: [150, 200, 120], 
         backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"],
         hoverBackgroundColor: ["#FF3B3B", "#2a8ab3", "#FFB64D", "#3fa7a7"],
       },
     ],
   };
 
-  // Função para abrir o modal de busca
+  // modal de busca
   const openSearchModal = () => setOpenModal(true);
   const closeSearchModal = () => setOpenModal(false);
 
@@ -89,12 +88,12 @@ export default function DashboardLayout() {
       <div
         style={{
           padding: "20px",
-          backgroundColor: "#121212", // fundo preto para o conteúdo
+          backgroundColor: "#121212", 
           color: "#fff",
           minHeight: "100vh",
         }}
       >
-        {/* Cabeçalho com título e filtro */}
+        {/* Cabeçalho */}
         <div
           style={{
             display: "flex",
@@ -105,16 +104,16 @@ export default function DashboardLayout() {
         >
           <h1
             style={{
-              fontSize: "36px", // Aumenta o tamanho do título
+              fontSize: "36px", 
               fontWeight: "bold",
               color: "#fff",
-              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", // Um toque de sombra para destacar
+              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", 
             }}
           >
             Dashboard
           </h1>
 
-          {/* Botão de filtro */}
+  
           <button
             onClick={openSearchModal}
             style={{
@@ -139,18 +138,18 @@ export default function DashboardLayout() {
           </button>
         </div>
 
-        {/* Linha de informações gerais */}
+        {/* Linha topo */}
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)", // 4 colunas
+            gridTemplateColumns: "repeat(4, 1fr)", 
             gap: "15px",
             marginBottom: "20px",
           }}
         >
           <div
             style={{
-              backgroundColor: "#1e1e1e", // fundo cinza escuro para os cards
+              backgroundColor: "#1e1e1e", 
               padding: "15px",
               borderRadius: "8px",
               textAlign: "center",
@@ -162,7 +161,7 @@ export default function DashboardLayout() {
           </div>
           <div
             style={{
-              backgroundColor: "#1e1e1e", // fundo cinza escuro para os cards
+              backgroundColor: "#1e1e1e", 
               padding: "15px",
               borderRadius: "8px",
               textAlign: "center",
@@ -174,7 +173,7 @@ export default function DashboardLayout() {
           </div>
           <div
             style={{
-              backgroundColor: "#1e1e1e", // fundo cinza escuro para os cards
+              backgroundColor: "#1e1e1e", 
               padding: "15px",
               borderRadius: "8px",
               textAlign: "center",
@@ -182,11 +181,11 @@ export default function DashboardLayout() {
             }}
           >
             <h3>Taxa de Conversão</h3>
-            <p>60%</p> {/* Aqui mantemos a taxa de conversão */}
+            <p>60%</p> 
           </div>
           <div
             style={{
-              backgroundColor: "#1e1e1e", // fundo cinza escuro para os cards
+              backgroundColor: "#1e1e1e", 
               padding: "15px",
               borderRadius: "8px",
               textAlign: "center",
@@ -201,18 +200,18 @@ export default function DashboardLayout() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)", // Alterado para 3 colunas
+            gridTemplateColumns: "repeat(3, 1fr)", 
             gap: "20px",
           }}
         >
           <div
             style={{
-              backgroundColor: "#1e1e1e", // fundo cinza escuro para os gráficos
+              backgroundColor: "#1e1e1e", 
               padding: "20px",
               borderRadius: "8px",
               boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-              height: "100%", // Preenche toda a altura disponível
-              display: "flex", // Flex para o gráfico se expandir
+              height: "100%", 
+              display: "flex",  
               flexDirection: "column",
             }}
           >
@@ -223,12 +222,12 @@ export default function DashboardLayout() {
           </div>
           <div
             style={{
-              backgroundColor: "#1e1e1e", // fundo cinza escuro para os gráficos
+              backgroundColor: "#1e1e1e"
               padding: "20px",
               borderRadius: "8px",
               boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-              height: "100%", // Preenche toda a altura disponível
-              display: "flex", // Flex para o gráfico se expandir
+              height: "100%",
+              display: "flex", 
               flexDirection: "column",
             }}
           >
@@ -239,12 +238,12 @@ export default function DashboardLayout() {
           </div>
           <div
             style={{
-              backgroundColor: "#1e1e1e", // fundo cinza escuro para os gráficos
+              backgroundColor: "#1e1e1e", 
               padding: "20px",
               borderRadius: "8px",
               boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-              height: "100%", // Preenche toda a altura disponível
-              display: "flex", // Flex para o gráfico se expandir
+              height: "100%", 
+              display: "flex", 
               flexDirection: "column",
             }}
           >
@@ -264,7 +263,7 @@ export default function DashboardLayout() {
               left: 0,
               width: "100%",
               height: "100%",
-              backgroundColor: "rgba(0, 0, 0, 0.7)", // Fundo semitransparente escuro
+              backgroundColor: "rgba(0, 0, 0, 0.7)", 
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
